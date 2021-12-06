@@ -14,7 +14,7 @@
 
 ## Cerita Daftar Modul  
 **1. Modul berita (Elang Permana)**  
-**2. Modul User Profile dan Login/Registration systems (Fikri Aufaa Zain)**  
+**2. Modul User Profile dan Login/Registration systems (Fikri Aufaa Zain.)**  
 **3. Modul jadwal vaksinasi (Fauzan Andri)**  
 **4. Modul artikel (Denny Johannes Hasea)**
 Modul ini berisi tentang kumpulan artikel yang dapat dibaca orang ketika senggang yang mungkin dapat menambah wawasan.  

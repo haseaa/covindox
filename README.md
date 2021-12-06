@@ -15,6 +15,7 @@
 ## Cerita Daftar Modul  
 **1. Modul berita (Elang Permana)**  
 **2. Modul User Profile dan Login/Registration systems (Fikri Aufaa Zain.)**  
+Modul ini memberikan akun kepada user yang mendaftar pada website covindox yang dimana data yang disimpan akan terhubung ke *database* yang ada pada django. Semua yang terintegrasikan di *website* akan diimplementasikan ke dalam bentuk aplikasi seperti *profile page*, *login page*, *registration page*.
 **3. Modul jadwal vaksinasi (Fauzan Andri)**  
 **4. Modul artikel (Denny Johannes Hasea)**
 Modul ini berisi tentang kumpulan artikel yang dapat dibaca orang ketika senggang yang mungkin dapat menambah wawasan.  

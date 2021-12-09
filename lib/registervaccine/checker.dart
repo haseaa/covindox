@@ -2,7 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'vaccineform.dart';
+import 'form.dart';
 import 'showresult.dart';
 
 class DataPendaftar {
@@ -32,12 +32,14 @@ class DataPendaftar {
 }
 
 Future<DataPendaftar> fetchData() async {
+  // Hard Coded
   String username = 'admin';
   final response = await http.get(Uri.parse(
-      'http://covindox.herokuapp.com/registervaccine/datapendaftarapi/' + username));
+      'https://covindox.herokuapp.com/registervaccine/datapendaftarapi/' + username));
 
   if (response.statusCode == 200) {
     // Kalau statusnya 200, berarti berhasil
+    print('masuk');
     return DataPendaftar.fromJson(jsonDecode(response.body));
   } else {
     // Kalau gagal, balikin aja objeknya dengan atribut String kosong
@@ -83,10 +85,10 @@ class Checker extends StatelessWidget {
               default:
                 if (dataPendaftar != null) {
                   if (dataPendaftar.tanggalVaksin == '') {
-                    return VaccineForm(
+                    return FormVaksin(
                         tanggal_vaksin: tanggal_vaksin,
                         waktu_vaksin: waktu_vaksin,
-                        event: event);
+                        event_app: event);
                   } else {
                     return ShowResult(
                       dataPendaftar: dataPendaftar,

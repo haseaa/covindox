@@ -30,7 +30,7 @@ Di masa pandemi ini, kita dipaksa untuk melakukan semua kegiatan di rumah dengan
 **2. Modul Landing Page, User Profile, Login/Registration systems (Fikri Aufaa Zain.)**  
 Modul ini memberikan akun kepada user yang mendaftar pada website covindox yang dimana data yang disimpan akan terhubung ke *database* yang ada pada django. Semua yang terintegrasikan di *website* akan diimplementasikan ke dalam bentuk aplikasi seperti *profile page*, *login page*, *registration page*.  
 **3. Modul jadwal vaksinasi (Fauzan Andri)**  
-Modul ini bersinergi dengan modul daftar vaksin untuk menyediakan tanggal dan waktu vaksin yang dapat dipilih oleh pengguna. Dengan memanfaatkan event calendar, admin dapat menambahkan jadwal vaksin yang selanjutnya akan ditampilkan kepada pengguna agar dapat memilih jadwal vaksin yang sesuai.
+Modul ini bersinergi dengan modul daftar vaksin untuk menyediakan tanggal dan waktu vaksin yang dapat dipilih oleh pengguna. Dengan memanfaatkan event calendar, admin dapat menambahkan jadwal vaksin yang selanjutnya akan ditampilkan kepada pengguna agar dapat memilih jadwal vaksin yang sesuai.  
 **4. Modul artikel (Denny Johannes Hasea)**
 Modul ini berisi tentang kumpulan artikel yang dapat dibaca orang ketika senggang yang mungkin dapat menambah wawasan.  
 **5. Modul halaman pangaduan (Agastya Kenzo Nayandra)**  

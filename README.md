@@ -31,13 +31,13 @@ Di masa pandemi ini, kita dipaksa untuk melakukan semua kegiatan di rumah dengan
 Modul ini memberikan akun kepada user yang mendaftar pada website covindox yang dimana data yang disimpan akan terhubung ke *database* yang ada pada django. Semua yang terintegrasikan di *website* akan diimplementasikan ke dalam bentuk aplikasi seperti *profile page*, *login page*, *registration page*.  
 **3. Modul jadwal vaksinasi (Fauzan Andri)**  
 Modul ini bersinergi dengan modul daftar vaksin untuk menyediakan tanggal dan waktu vaksin yang dapat dipilih oleh pengguna. Dengan memanfaatkan event calendar, admin dapat menambahkan jadwal vaksin yang selanjutnya akan ditampilkan kepada pengguna agar dapat memilih jadwal vaksin yang sesuai.  
-**4. Modul artikel (Denny Johannes Hasea)**
+**4. Modul artikel (Denny Johannes Hasea)**  
 Modul ini berisi tentang kumpulan artikel yang dapat dibaca orang ketika senggang yang mungkin dapat menambah wawasan.  
 **5. Modul halaman pangaduan (Agastya Kenzo Nayandra)**  
 Modul ini akan berisi feedback dari pengguna yang dapat berupa laporan bug di aplikasi atau masukan yang dapat di implementasikan kedepanya  
 **6. Modul Form Pendaftaran (Muhammad Imam Luthfi Balaka)**  
 Modul ini berkaitan dengan modul jadwal vaksinasi, yaitu dalam hal menyediakan form untuk mendaftar pada jadwal yang sudah dipilih pada modul jadwal vaksinasi. Aplikasi akan melakukan async http get ke web service untuk mengecek apakah user yang sedang login sudah mendaftar. Jika iya, ditampilkan datanya, jika belum, diberikan form untuk mengisi data.  
-**7. Modul text generator penyemangat (Michael Daw Balma)**
+**7. Modul text generator penyemangat (Michael Daw Balma)**  
 Modul ini bertujuan agar kita tetap dapat semangat di masa pandemi. Implementasinya yaitu user yang sudah login dapat memasukkan kata-kata random sebagai penyemangat, lalu kata-kata tersebut akan disimpan pada database. Setelah itu akan dimunculkan dalam bentuk acak (muncul katanya yang acak).
 
 

@@ -19,7 +19,7 @@ Future<http.Response> updateDataPendaftar(
     String nik,
     String nama,
     String usia) {
-  return http.put(
+  return http.post(
     Uri.parse('https://covindox.herokuapp.com/registervaccine/dataapi'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8',

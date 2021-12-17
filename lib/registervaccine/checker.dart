@@ -34,12 +34,13 @@ class DataPendaftar {
 Future<DataPendaftar> fetchData() async {
   // Hard Coded
   String username = 'admin';
-  final response = await http.get(Uri.parse(
-      'https://covindox.herokuapp.com/registervaccine/datapendaftarapi/' + username));
+  final response = await http.post(Uri.parse(
+      'https://covindox.herokuapp.com/registervaccine/datapendaftarapi/' +
+          username));
 
+  print(response.statusCode);
   if (response.statusCode == 200) {
     // Kalau statusnya 200, berarti berhasil
-    print('masuk');
     return DataPendaftar.fromJson(jsonDecode(response.body));
   } else {
     // Kalau gagal, balikin aja objeknya dengan atribut String kosong

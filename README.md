@@ -1,3 +1,6 @@
+![Pipeline Status](https://github.com/fikriazain/covindox/actions/workflows/main.yml/badge.svg)
+
+
 # :syringe: Covindox Flutter :syringe:
 
 

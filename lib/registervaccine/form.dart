@@ -248,13 +248,6 @@ class FormVaksinState extends State<FormVaksin> {
                                 .then((value) {
                               Navigator.pop(context);
                             });
-                            // print(_waktu_vaksin);
-                            // print(_tanggal_vaksin);
-                            // print(_event);
-                            // print(_nama);
-                            // print(_nik);
-                            // print(_username);
-                            // print(_usia);
                           },
                         ),
                         const Padding(

@@ -38,7 +38,6 @@ Future<DataPendaftar> fetchData() async {
       'https://covindox.herokuapp.com/registervaccine/datapendaftarapi/' +
           username));
 
-  print(response.statusCode);
   if (response.statusCode == 200) {
     // Kalau statusnya 200, berarti berhasil
     return DataPendaftar.fromJson(jsonDecode(response.body));

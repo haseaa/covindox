@@ -1,21 +1,40 @@
+import 'package:covindox_flutter/auth_user.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
-
+import 'package:provider/provider.dart';
 import 'user/login.dart';
 import 'user/register.dart';
 
 void main() {
-  runApp(new MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: HomePage(),
-  ));
+  runApp(myApp());
+}
+
+class myApp extends StatelessWidget {
+  const myApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Provider(
+        create: (_) {
+          CookieRequest request = CookieRequest();
+
+          return request;
+        },
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          home: HomePage(),
+        ));
+  }
 }
 
 class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    child:
+    return Scaffold(
       backgroundColor: Color.fromRGBO(144, 228, 252, 10),
       body: Padding(
         padding: EdgeInsets.only(top: 5.0),
@@ -40,7 +59,7 @@ class HomePage extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Login()),
+                    MaterialPageRoute(builder: (Buildercontext) => Login()),
                   );
                 },
                 color: HexColor("#ff9cbc"),

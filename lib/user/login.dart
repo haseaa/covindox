@@ -1,24 +1,37 @@
+import 'dart:convert';
+
+import 'package:covindox_flutter/auth_user.dart';
 import 'package:covindox_flutter/main.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:provider/provider.dart';
 
+class Login extends StatefulWidget {
+  const Login({Key? key}) : super(key: key);
 
-class Login extends StatelessWidget {
+  @override
+  LoginPage createState() => LoginPage();
+}
+
+class LoginPage extends State<Login> {
   final _formKey = GlobalKey<FormState>();
+  late String _username, _password;
+
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final request = context.watch<CookieRequest>();
     return Scaffold(
-        backgroundColor: Color.fromRGBO(144, 228, 252, 10),
+        backgroundColor: const Color.fromRGBO(144, 228, 252, 10),
         body: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(top: 100.0, bottom: 50.0),
+              margin: const EdgeInsets.only(top: 100.0, bottom: 50.0),
               alignment: Alignment.topCenter,
               child: Text("Login",
                   style: GoogleFonts.novaRound(
-                    textStyle: TextStyle(color: Colors.white, fontSize: 60.0),
+                    textStyle:
+                        const TextStyle(color: Colors.white, fontSize: 60.0),
                   )),
             ),
             Form(
@@ -27,26 +40,41 @@ class Login extends StatelessWidget {
                   children: [
                     InputText(
                       hintText: "Username",
-                      onChanged: (value) {},
+                      onChanged: (value) => _username = value,
                     ),
                     InputText(
                         hintText: "Password",
-                        onChanged: (value) {},
+                        onChanged: (value2) => _password = value2,
                         obscure: true,
                         icon: Icons.lock),
-                    new Container(
+                    Container(
                       margin: EdgeInsets.only(top: 50.0),
                       child: RaisedButton(
                         padding:
                             EdgeInsets.symmetric(vertical: 20, horizontal: 70),
-                        onPressed: () {
+                        onPressed: () async {
                           if (_formKey.currentState!.validate()) {
                             // If the form is valid, display a snackbar. In the real world,
                             // you'd often call a server or save the information in a database.
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Processing Data')),
-                            );
-                          }
+                            final response = await request.login(
+                                'http://127.0.0.1:8000/login/flutterlogin',
+                                {'username': _username, 'password': _password});
+                            if (request.loggedIn) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    content: Text('Processing Data')),
+                              );
+                              // Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => HomePage()));
+                            } else {
+                              print("HERE");
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(content: Text('Bitch Data')),
+                              );
+                            }
+                          } else {}
                         },
                         color: HexColor("#68c8f5"),
                         shape: RoundedRectangleBorder(

@@ -60,21 +60,25 @@ class LoginPage extends State<Login> {
                                 'http://127.0.0.1:8000/login/flutterlogin',
                                 {'username': _username, 'password': _password});
                             if (request.loggedIn) {
+                              final List<dynamic> meh = await request.get(
+                                  'http://127.0.0.1:8000/registervaccine/json');
+                              print(meh.toString());
+
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(
                                     content: Text('Processing Data')),
                               );
-                              // Navigator.push(
-                              //     context,
-                              //     MaterialPageRoute(
-                              //         builder: (context) => HomePage()));
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => HomePage()));
                             } else {
                               print("HERE");
                               ScaffoldMessenger.of(context).showSnackBar(
                                 const SnackBar(content: Text('Bitch Data')),
                               );
                             }
-                          } else {}
+                          }
                         },
                         color: HexColor("#68c8f5"),
                         shape: RoundedRectangleBorder(

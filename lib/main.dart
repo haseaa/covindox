@@ -24,6 +24,7 @@ class myApp extends StatelessWidget {
         child: MaterialApp(
           debugShowCheckedModeBanner: false,
           home: HomePage(),
+          routes: {"/login": (BuildContext context) => const Login()},
         ));
   }
 }
@@ -33,6 +34,8 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final request = context.watch<CookieRequest>();
+    request.init(context);
     child:
     return Scaffold(
       backgroundColor: Color.fromRGBO(144, 228, 252, 10),

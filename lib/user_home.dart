@@ -1,37 +1,13 @@
-import 'package:covindox_flutter/auth_user.dart';
 import 'package:covindox_flutter/user/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:provider/provider.dart';
-import 'user/login.dart';
-import 'user/register.dart';
 
-void main() {
-  runApp(myApp());
-}
+import 'auth_user.dart';
 
-class myApp extends StatelessWidget {
-  const myApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Provider(
-        create: (_) {
-          CookieRequest request = CookieRequest();
-
-          return request;
-        },
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: HomePage(),
-          routes: {"/login": (BuildContext context) => const Login()},
-        ));
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class UserPage extends StatelessWidget {
+  const UserPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -61,39 +37,32 @@ class HomePage extends StatelessWidget {
               child: RaisedButton(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 70),
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (Buildercontext) => Login()),
-                  );
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Profile()));
                 },
                 color: HexColor("#ff9cbc"),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: Text(
-                  "Login",
+                  "Go to Profile",
                   style: TextStyle(color: HexColor("#605c5c"), fontSize: 40.0),
                 ),
               ),
             ),
             new Container(
-              margin: EdgeInsets.only(top: 50.0),
+              margin: EdgeInsets.only(top: 80.0),
               child: RaisedButton(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => Register()),
-                  );
-                },
-                color: HexColor("#e8fc9c"),
+                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 70),
+                onPressed: () {},
+                color: HexColor("#ff9cbc"),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(50))),
                 child: Text(
-                  "Register",
+                  "Log out",
                   style: TextStyle(color: HexColor("#605c5c"), fontSize: 40.0),
                 ),
               ),
-            )
+            ),
           ],
         )),
       ),

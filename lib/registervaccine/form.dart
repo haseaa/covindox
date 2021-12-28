@@ -7,6 +7,7 @@ import 'package:http/http.dart' as http;
 
 // Inspired from https://github.com/theflutterfactory/Flutter-Tutorials/blob/form_demo/lib/form_screen.dart
 
+String userName = '';
 String tanggalVaksin = '';
 String waktuVaksin = '';
 String event = '';
@@ -37,16 +38,19 @@ Future<http.Response> updateDataPendaftar(
 }
 
 class FormVaksin extends StatefulWidget {
+  var user_name;
   var waktu_vaksin;
   var tanggal_vaksin;
   var event_app;
 
   FormVaksin(
       {Key? key,
+      required this.user_name,
       required this.tanggal_vaksin,
       required this.waktu_vaksin,
       required this.event_app})
       : super(key: key) {
+    userName = user_name;
     tanggalVaksin = tanggal_vaksin;
     waktuVaksin = waktu_vaksin;
     event = event_app;
@@ -59,7 +63,7 @@ class FormVaksin extends StatefulWidget {
 }
 
 class FormVaksinState extends State<FormVaksin> {
-  String _username = 'admin';
+  String _username = userName;
   String _event = event;
   String _tanggal_vaksin = tanggalVaksin;
   String _waktu_vaksin = waktuVaksin;

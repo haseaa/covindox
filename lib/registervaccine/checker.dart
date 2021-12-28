@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:covindox_flutter/auth_user.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
+import 'package:provider/src/provider.dart';
 import 'form.dart';
 import 'showresult.dart';
 
@@ -31,9 +33,22 @@ class DataPendaftar {
   }
 }
 
-Future<DataPendaftar> fetchData() async {
-  // Hard Coded
-  String username = 'admin';
+String usernameGlobal = '';
+
+Future<DataPendaftar> fetchData(BuildContext context) async {
+  print('masuk pertama');
+  String username;
+  final request = context.watch<CookieRequest>();
+  request.init(context);
+  if (request.loggedIn) {
+    print('masuk kedua');
+    List<dynamic> userNameDynamic = await request
+        .get('https://covindox.herokuapp.com/registervaccine/getusername');
+    username = userNameDynamic[0]['username'];
+  } else {
+    username = '';
+  }
+  usernameGlobal = username;
   final response = await http.post(Uri.parse(
       'https://covindox.herokuapp.com/registervaccine/datapendaftarapi/' +
           username));
@@ -65,7 +80,7 @@ class Checker extends StatelessWidget {
     return Scaffold(
         backgroundColor: const Color.fromRGBO(144, 228, 252, 10),
         body: FutureBuilder<DataPendaftar>(
-          future: fetchData(),
+          future: fetchData(context),
           builder: (context, snapshot) {
             final dataPendaftar = snapshot.data;
 
@@ -86,6 +101,7 @@ class Checker extends StatelessWidget {
                 if (dataPendaftar != null) {
                   if (dataPendaftar.tanggalVaksin == '') {
                     return FormVaksin(
+                        user_name: usernameGlobal,
                         tanggal_vaksin: tanggal_vaksin,
                         waktu_vaksin: waktu_vaksin,
                         event_app: event);

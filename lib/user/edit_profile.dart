@@ -42,7 +42,8 @@ class EditProfile extends State<EditState> {
     final request = context.watch<CookieRequest>();
     return Scaffold(
         backgroundColor: const Color.fromRGBO(144, 228, 252, 10),
-        body: Column(
+        body: SingleChildScrollView(
+            child: Column(
           children: [
             Container(
               margin: const EdgeInsets.only(top: 100.0, bottom: 50.0),
@@ -130,7 +131,7 @@ class EditProfile extends State<EditState> {
               ),
             )
           ],
-        ));
+        )));
   }
 }
 

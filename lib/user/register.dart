@@ -32,110 +32,113 @@ class Register extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Color.fromRGBO(144, 228, 252, 10),
-        body: Column(
-          children: [
-            Container(
-              margin: EdgeInsets.only(top: 80.0, bottom: 50.0),
-              alignment: Alignment.topCenter,
-              child: Text("Register",
-                  style: GoogleFonts.novaRound(
-                    textStyle: TextStyle(color: Colors.white, fontSize: 50.0),
-                  )),
-            ),
-            Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    InputText(
-                      hintText: "Username",
-                      onChanged: (value) => _username = value,
-                    ),
-                    InputText(
-                        hintText: "Email Address",
-                        onChanged: (value1) => _email = value1,
-                        obscure: false,
-                        icon: Icons.email),
-                    InputText(
-                        hintText: "Password",
-                        onChanged: (value2) => _password = value2,
-                        obscure: true,
-                        icon: Icons.lock),
-                    InputText(
-                        hintText: "Confirm Password",
-                        onChanged: (value3) => _confirmpass = value3,
-                        obscure: true,
-                        icon: Icons.lock),
-                    new Container(
-                      margin: EdgeInsets.only(top: 50.0),
-                      child: RaisedButton(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 20, horizontal: 70),
-                        onPressed: () {
-                          final form = _formKey.currentState!;
-                          if (_formKey.currentState!.validate()) {
-                            // If the form is valid, display a snackbar. In the real world,
-                            // you'd often call a server or save the information in a database.
-                            if (_password.endsWith(_confirmpass)) {
-                              form.save();
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              Container(
+                margin: EdgeInsets.only(top: 80.0, bottom: 50.0),
+                alignment: Alignment.topCenter,
+                child: Text("Register",
+                    style: GoogleFonts.novaRound(
+                      textStyle: TextStyle(color: Colors.white, fontSize: 50.0),
+                    )),
+              ),
+              Form(
+                  key: _formKey,
+                  child: Column(
+                    children: [
+                      InputText(
+                        hintText: "Username",
+                        onChanged: (value) => _username = value,
+                      ),
+                      InputText(
+                          hintText: "Email Address",
+                          onChanged: (value1) => _email = value1,
+                          obscure: false,
+                          icon: Icons.email),
+                      InputText(
+                          hintText: "Password",
+                          onChanged: (value2) => _password = value2,
+                          obscure: true,
+                          icon: Icons.lock),
+                      InputText(
+                          hintText: "Confirm Password",
+                          onChanged: (value3) => _confirmpass = value3,
+                          obscure: true,
+                          icon: Icons.lock),
+                      new Container(
+                        margin: EdgeInsets.only(top: 50.0),
+                        child: RaisedButton(
+                          padding: EdgeInsets.symmetric(
+                              vertical: 20, horizontal: 70),
+                          onPressed: () {
+                            final form = _formKey.currentState!;
+                            if (_formKey.currentState!.validate()) {
+                              // If the form is valid, display a snackbar. In the real world,
+                              // you'd often call a server or save the information in a database.
+                              if (_password.endsWith(_confirmpass)) {
+                                form.save();
 
-                              registFlutter(_username, _email, _password,
-                                      _confirmpass)
-                                  .then((value) {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => Login()));
-                              });
+                                registFlutter(_username, _email, _password,
+                                        _confirmpass)
+                                    .then((value) {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) => Login()));
+                                });
 
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Processing Data'),
-                                  duration: Duration(seconds: 3),
-                                ),
-                              );
-                            } else {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(
-                                  content: Text('Password Mismatch'),
-                                  duration: Duration(seconds: 10),
-                                ),
-                              );
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Processing Data'),
+                                    duration: Duration(seconds: 3),
+                                  ),
+                                );
+                              } else {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  const SnackBar(
+                                    content: Text('Password Mismatch'),
+                                    duration: Duration(seconds: 10),
+                                  ),
+                                );
+                              }
                             }
-                          }
-                        },
-                        color: HexColor("#68c8f5"),
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30))),
-                        child: Text(
-                          "Register",
-                          style: TextStyle(
-                              color: HexColor("#605c5c"), fontSize: 30.0),
+                          },
+                          color: HexColor("#68c8f5"),
+                          shape: RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30))),
+                          child: Text(
+                            "Register",
+                            style: TextStyle(
+                                color: HexColor("#605c5c"), fontSize: 30.0),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                )),
-            new Container(
-              margin: EdgeInsets.only(top: 30.0),
-              child: RaisedButton(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
-                },
-                color: HexColor("#F07788"),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30))),
-                child: Text(
-                  "Back",
-                  style: TextStyle(color: HexColor("#605c5c"), fontSize: 30.0),
+                    ],
+                  )),
+              new Container(
+                margin: EdgeInsets.only(top: 30.0),
+                child: RaisedButton(
+                  padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
+                  },
+                  color: HexColor("#F07788"),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30))),
+                  child: Text(
+                    "Back",
+                    style:
+                        TextStyle(color: HexColor("#605c5c"), fontSize: 30.0),
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ));
   }
 }

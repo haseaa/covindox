@@ -1,3 +1,4 @@
+import 'package:covindox_flutter/main.dart';
 import 'package:covindox_flutter/user/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -53,7 +54,11 @@ class UserPage extends StatelessWidget {
               margin: EdgeInsets.only(top: 80.0),
               child: RaisedButton(
                 padding: EdgeInsets.symmetric(vertical: 20, horizontal: 70),
-                onPressed: () {},
+                onPressed: () {
+                  request.loggedIn = false;
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HomePage()));
+                },
                 color: HexColor("#ff9cbc"),
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(50))),

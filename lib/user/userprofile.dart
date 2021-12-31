@@ -27,12 +27,34 @@ class UserData {
   });
 
   factory UserData.fromJson(Map<String, dynamic> json) {
+    String fullname = "Belum memasukkan";
+    String phone = "Belum memasukkan";
+    String address = "Belum memasukkan";
+    String vaksin1 = "Belum memasukkan";
+    String vaksin2 = "Belum memasukkan";
+
+    if (json["fullname"] != null) {
+      fullname = json["fullname"];
+    }
+    if (json["bod"] != null) {
+      phone = json["phone"];
+    }
+    if (json["phone"] != null) {
+      address = json["address"];
+    }
+    if (json["province"] != null) {
+      vaksin1 = json["vaksin1"];
+    }
+    if (json["address"] != null) {
+      vaksin2 = json["vaksin2"];
+    }
+
     return UserData(
-      fullname: json['fullname'],
-      phone: json['phone'],
-      address: json['address'],
-      vaksin1: json['vaksin1'],
-      vaksin2: json['vaksin2'],
+      fullname: fullname,
+      phone: phone,
+      address: address,
+      vaksin1: vaksin1,
+      vaksin2: vaksin2,
     );
   }
 }

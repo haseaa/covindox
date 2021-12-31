@@ -1,11 +1,9 @@
 import 'dart:convert';
-import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'entities/event.dart';
 import 'package:flutter/src/painting/text_style.dart';
-import 'dart:ui';
 import 'package:covindox_flutter/registervaccine/checker.dart';
 
 class JadwalApp extends StatelessWidget {

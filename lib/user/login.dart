@@ -60,11 +60,11 @@ class LoginPage extends State<Login> {
                             // If the form is valid, display a snackbar. In the real world,
                             // you'd often call a server or save the information in a database.
                             final response = await request.login(
-                                'http://127.0.0.1:8000/login/flutterlogin',
+                                'https://covindox.herokuapp.com/login/flutterlogin',
                                 {'username': _username, 'password': _password});
                             if (request.loggedIn) {
                               final List<dynamic> meh = await request.get(
-                                  'http://127.0.0.1:8000/registervaccine/json');
+                                  'https://covindox.herokuapp.com/registervaccine/json');
                               print(meh.toString());
 
                               ScaffoldMessenger.of(context).showSnackBar(

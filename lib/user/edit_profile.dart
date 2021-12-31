@@ -14,7 +14,7 @@ import 'package:provider/provider.dart';
 Future<http.Response> editUserProfile(
     String fullname, String phone, String address) {
   return http.post(
-    Uri.parse('http://127.0.0.1:8000/profile/edit-profile/flutter'),
+    Uri.parse('https://covindox.herokuapp.com/profile/edit-profile/flutter'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8'
     },
@@ -85,7 +85,7 @@ class EditProfile extends State<EditState> {
                                 listen: false);
                             request
                                 .post(
-                                    'http://127.0.0.1:8000/profile/edit-profile/flutter',
+                                    'https://covindox.herokuapp.com/profile/edit-profile/flutter',
                                     jsonEncode(<String, String>{
                                       'fullname': fullname,
                                       'no_phone': phone,

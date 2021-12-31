@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:covindox_flutter/kalender/jadwal.dart';
-import 'package:covindox_flutter/artikel/awal.dart';
 
 class Session extends StatefulWidget {
   const Session({Key? key}) : super(key: key);
@@ -23,7 +22,7 @@ class _MainSession extends State<Session> {
   final screens = [
     UserPage(),
     JadwalApp(),
-    Awalan(),
+    Profile(),
     Profile(),
   ];
   @override

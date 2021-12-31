@@ -1,3 +1,4 @@
+import 'package:covindox_flutter/Article/awal.dart';
 import 'package:covindox_flutter/registervaccine/checker.dart';
 import 'package:covindox_flutter/registervaccine/form.dart';
 import 'package:covindox_flutter/registervaccine/showresult.dart';
@@ -9,6 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:covindox_flutter/kalender/jadwal.dart';
+import 'Article/awal.dart';
 
 class Session extends StatefulWidget {
   const Session({Key? key}) : super(key: key);
@@ -22,7 +24,7 @@ class _MainSession extends State<Session> {
   final screens = [
     UserPage(),
     JadwalApp(),
-    Profile(),
+    Awalan(),
     Profile(),
   ];
   @override

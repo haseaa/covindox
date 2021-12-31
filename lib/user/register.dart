@@ -10,7 +10,7 @@ import 'package:http/http.dart' as http;
 Future<http.Response> registFlutter(
     String username, String email, String pass1, String pass2) {
   return http.post(
-    Uri.parse('http://127.0.0.1:8000/register/flutterregist'),
+    Uri.parse('https://covindox.herokuapp.com/register/flutterregist'),
     headers: <String, String>{
       'Content-Type': 'application/json; charset=UTF-8'
     },

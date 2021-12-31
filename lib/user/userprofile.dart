@@ -52,7 +52,9 @@ class UserProfile extends State<Profile> {
     super.initState();
     WidgetsBinding.instance!.addPostFrameCallback((timeStamp) {
       final request = Provider.of<CookieRequest>(context, listen: false);
-      request.get('http://127.0.0.1:8000/get-profile/json').then((value) {
+      request
+          .get('https://covindox.herokuapp.com/get-profile/json')
+          .then((value) {
         super.setState(() {
           userdata = UserData.fromJson(value);
         });

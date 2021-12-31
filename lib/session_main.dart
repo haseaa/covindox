@@ -9,7 +9,10 @@ import 'package:covindox_flutter/auth_user.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
+<<<<<<< HEAD
 import 'package:covindox_flutter/kalender/jadwal.dart';
+=======
+>>>>>>> a9d2f69a2e5aa88fae068095e1201c2b42f4e3bc
 import 'Article/awal.dart';
 
 class Session extends StatefulWidget {
@@ -23,7 +26,11 @@ class _MainSession extends State<Session> {
   int currentIndex = 0;
   final screens = [
     UserPage(),
+<<<<<<< HEAD
     JadwalApp(),
+=======
+    Profile(),
+>>>>>>> a9d2f69a2e5aa88fae068095e1201c2b42f4e3bc
     Awalan(),
     Profile(),
   ];
